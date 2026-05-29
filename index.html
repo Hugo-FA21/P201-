@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MonSite</title>
   <link rel="stylesheet" href="styles.css">
-  <script type="module" src="script.js"></script>
+  <script type="module" defer src="script.js"></script>
 </head>
 <body>
 
@@ -15,9 +15,9 @@
       <h1>MonSite</h1>
 
       <ul>
-        <li><a href="#">Accueil</a></li>
+        <a href="#accueil">Accueil</a>
         <li><a href="#">À propos</a></li>
-        <li><a href="#">Services</a></li>
+        <a href="#services">Services</a>
         <li><a href="#">Contact</a></li>
       </ul>
     </nav>
@@ -25,7 +25,7 @@
 
   <div id="box"></div>
 
-  <section class="hero">
+  <section id="accueil" class="hero">
     <div class="hero-content">
       <h1>La base d’un site web moderne</h1>
 
@@ -40,7 +40,7 @@
     </div>
   </section>
 
-  <section class="services">
+  <section id="services" class="services">
     <h2>Services</h2>
 
     <div class="cards">
