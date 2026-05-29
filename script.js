@@ -1,4 +1,4 @@
-import { createDraggable } from "https://cdn.jsdelivr.net/npm/animejs/+esm";
+import { createDraggable, animate } from "https://cdn.jsdelivr.net/npm/animejs/+esm";
 
 animate('.card', {
   translateY: [-50, 0],
