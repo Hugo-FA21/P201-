@@ -3,66 +3,171 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MonSite</title>
+  <title>Hugo Ferreira Ascensão</title>
   <link rel="stylesheet" href="styles.css">
   <script type="module" defer src="script.js"></script>
 </head>
 <body>
 
-  
   <header>
     <nav>
-      <h1>MonSite</h1>
-
-      <ul>
-        <a href="#accueil">Accueil</a>
-        <li><a href="#">À propos</a></li>
-        <a href="#services">Services</a>
-        <li><a href="#">Contact</a></li>
+      <h1>HFA</h1>
+      <ul id="navLinks">
+        <li><a href="#accueil">Accueil</a></li>
+        <li><a href="#presentation">Présentation</a></li>
+        <li><a href="#pro">Projets pro</a></li>
+        <li><a href="#perso">Projets perso</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
+      <button id="burger" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div id="box"></div>
     </nav>
   </header>
 
-  <div id="box"></div>
+  <!-- Menu mobile -->
+  <div id="mobileMenu">
+    <ul>
+      <li><a href="#accueil">Accueil</a></li>
+      <li><a href="#presentation">Présentation</a></li>
+      <li><a href="#pro">Projets pro</a></li>
+      <li><a href="#perso">Projets perso</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
 
-  <section id="accueil" class="hero">
-    <div class="hero-content">
-      <h1>La base d’un site web moderne</h1>
+  <main id="main">
 
-      <p>
-        Structure simple en HTML et CSS pour démarrer rapidement un site vitrine.
-      </p>
-
-      <div class="buttons">
-        <button class="btn btn-primary">Commencer</button>
-        <button class="btn btn-secondary">En savoir plus</button>
+    <section id="accueil" class="page active">
+      <div class="hero-content">
+        <p class="eyebrow">Étudiant en informatique</p>
+        <h1>Hugo Ferreira<br>Ascensão</h1>
+        <p class="subtitle">Développement & Conception de logiciel · IUT Nantes</p>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="services" class="services">
-    <h2>Services</h2>
-
-    <div class="cards">
-      <div class="card">
-        <h3>Design</h3>
-        <p>Structure moderne et responsive.</p>
+    <section id="presentation" class="page">
+      <div class="inner">
+        <h2>Présentation</h2>
+        <div class="grid-2">
+          <div class="bloc">
+            <h3>Formation</h3>
+            <div class="item">
+              <span class="date">2025 – 2028</span>
+              <strong>IUT Nantes – Campus Joffre</strong>
+              <p>BUT Informatique · Réalisation d'applications : conception, développement, validation</p>
+            </div>
+            <div class="item">
+              <span class="date">2022 – 2025</span>
+              <strong>Lycée Charles Péguy – Gorge</strong>
+              <p>Bac Spécialité Mathématiques & NSI · Mention Assez Bien</p>
+            </div>
+          </div>
+          <div class="bloc">
+            <h3>Compétences</h3>
+            <div class="tags">
+              <span>Python</span>
+              <span>HTML / CSS</span>
+              <span>JavaScript</span>
+              <span>Langage C</span>
+              <span>Golang</span>
+            </div>
+            <h3>Langues</h3>
+            <div class="tags">
+              <span>Français</span>
+              <span>Portugais</span>
+              <span>Anglais</span>
+              <span>Espagnol</span>
+            </div>
+            <h3>Distinctions</h3>
+            <p>🏅 Ambassadeur Numérique 4 étoiles – 2025</p>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="card">
-        <h3>Développement</h3>
-        <p>Base HTML/CSS facile à modifier.</p>
+    <section id="pro" class="page">
+      <div class="inner">
+        <h2>Projets professionnels</h2>
+        <div class="cards-list">
+          <div class="card-item">
+            <span class="date">2021</span>
+            <div>
+              <strong>Stage 3° – PH Network</strong>
+              <p>Le Loroux Bottereau · Découverte de l'organisation d'une équipe informatique et de la mise en place d'un projet informatique.</p>
+            </div>
+          </div>
+          <div class="card-item">
+            <span class="date">2022 – 2026</span>
+            <div>
+              <strong>Manœuvre – MJ SPE Béton</strong>
+              <p>Aide sur chantier, réalisation de tâches manuelles, travail en équipe et respect des consignes de sécurité. (Vacances scolaires)</p>
+            </div>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="card">
-        <h3>Performance</h3>
-        <p>Site léger et rapide à charger.</p>
+    <section id="perso" class="page">
+      <div class="inner">
+        <h2>Projets personnels</h2>
+        <div class="cards-list">
+          <div class="card-item placeholder">
+            <span class="date">À venir</span>
+            <div>
+              <strong>Projet #1</strong>
+              <p>Description du projet à renseigner.</p>
+            </div>
+          </div>
+          <div class="card-item placeholder">
+            <span class="date">À venir</span>
+            <div>
+              <strong>Projet #2</strong>
+              <p>Description du projet à renseigner.</p>
+            </div>
+          </div>
+          <div class="card-item placeholder">
+            <span class="date">À venir</span>
+            <div>
+              <strong>Projet #3</strong>
+              <p>Description du projet à renseigner.</p>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <section id="contact" class="page">
+      <div class="inner">
+        <h2>Contact</h2>
+        <div class="contact-list">
+          <a href="mailto:hugo.ascensao@gmail.com" class="contact-item">
+            <span class="contact-label">Email</span>
+            <span>hugo.ascensao@gmail.com</span>
+          </a>
+          <a href="tel:+33766547392" class="contact-item">
+            <span class="contact-label">Téléphone</span>
+            <span>+33 7 66 54 73 92</span>
+          </a>
+          <div class="contact-item">
+            <span class="contact-label">Localisation</span>
+            <span>Le Loroux Bottereau, 44430</span>
+          </div>
+          <div class="contact-item">
+            <span class="contact-label">Permis</span>
+            <span>Permis B · Véhiculé</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
 
   <footer>
-    <p>© 2026 MonSite - Tous droits réservés</p>
+    <p>© 2026 Hugo Ferreira Ascensão</p>
   </footer>
 
 </body>
