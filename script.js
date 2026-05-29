@@ -1,6 +1,5 @@
-import { createDraggable, animate } from "https://cdn.jsdelivr.net/npm/animejs/+esm";
+import { createDraggable } from "https://cdn.jsdelivr.net/npm/animejs/+esm";
 
-// Animation d'entrée des cards
 animate('.card', {
   translateY: [-50, 0],
   opacity: [0, 1],
@@ -11,63 +10,36 @@ animate('.card', {
 const box = document.querySelector("#box");
 const navLinks = document.querySelectorAll("nav ul li a");
 
-// Zones de drop = les liens nav
-const dropZones = Array.from(navLinks).map(link => ({
-  el: link,
-  rect: link.getBoundingClientRect()
-}));
-
-function getHoveredZone() {
-  const boxRect = box.getBoundingClientRect();
-  const boxCX = boxRect.left + boxRect.width / 2;
-  const boxCY = boxRect.top + boxRect.height / 2;
-
-  return dropZones.find(({ rect }) => {
-    return (
-      boxCX >= rect.left &&
-      boxCX <= rect.right &&
-      boxCY >= rect.top &&
-      boxCY <= rect.bottom
-    );
+function getSnapPositions() {
+  return Array.from(navLinks).map(link => {
+    const rect = link.getBoundingClientRect();
+    return {
+      x: rect.left + rect.width / 2 - box.offsetWidth / 2,
+      y: rect.top + rect.height / 2 - box.offsetHeight / 2
+    };
   });
 }
 
 createDraggable(box, {
+  x: { snap: () => getSnapPositions().map(p => p.x) },
+  y: { snap: () => getSnapPositions().map(p => p.y) },
   release: {
     duration: 600,
     ease: "outElastic"
   },
   onRelease() {
-    // Recalcule les rects (au cas où la page aurait scrollé)
-    dropZones.forEach(zone => {
-      zone.rect = zone.el.getBoundingClientRect();
-    });
+    const positions = getSnapPositions();
+    const boxRect = box.getBoundingClientRect();
 
-    const hit = getHoveredZone();
+    // Trouve quel lien est le plus proche
+    const closest = positions.reduce((best, pos, i) => {
+      const dist = Math.hypot(boxRect.left - pos.x, boxRect.top - pos.y);
+      return dist < best.dist ? { dist, i } : best;
+    }, { dist: Infinity, i: -1 });
 
-    if (hit) {
-      const rect = hit.rect;
-
-      // Centre la box sur le lien
-      const targetX = rect.left + rect.width / 2 - box.offsetWidth / 2;
-      const targetY = rect.top + rect.height / 2 - box.offsetHeight / 2 + window.scrollY;
-
-      animate(box, {
-        left: targetX,
-        top: targetY,
-        duration: 400,
-        ease: "outExpo"
-      });
-
-      // Active le lien visuellement
+    if (closest.i >= 0) {
       navLinks.forEach(l => l.classList.remove("active"));
-      hit.el.classList.add("active");
-
-      // Scroll vers la section
-      const target = hit.el.getAttribute("href");
-      if (target && target !== "#") {
-        document.querySelector(target)?.scrollIntoView({ behavior: "smooth" });
-      }
+      navLinks[closest.i].classList.add("active");
     }
   }
 });
