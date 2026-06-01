@@ -53,9 +53,9 @@ nav a {
   padding: 6px 14px;
   border-radius: 6px;
   white-space: nowrap;
-  pointer-events: none;
   position: relative;
-  z-index: 0;
+  z-index: 2;
+  cursor: pointer;
 }
 
 #box {
@@ -71,7 +71,6 @@ nav a {
   cursor: grabbing;
 }
 
-/* Layout principal */
 main {
   flex: 1;
   position: relative;
@@ -96,7 +95,6 @@ main {
   display: flex;
 }
 
-/* Footer toujours en bas */
 footer {
   background: black;
   color: white;
@@ -106,7 +104,6 @@ footer {
   flex-shrink: 0;
 }
 
-/* Accueil */
 #accueil {
   min-height: 100%;
   justify-content: center;
@@ -135,7 +132,6 @@ footer {
   color: #666;
 }
 
-/* Inner sections */
 .inner {
   padding: 80px 40px;
   max-width: 900px;
@@ -153,7 +149,6 @@ h2 {
   margin-bottom: 50px;
 }
 
-/* Grid 2 colonnes */
 .grid-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -195,7 +190,6 @@ h2 {
   line-height: 1.6;
 }
 
-/* Tags */
 .tags {
   display: flex;
   flex-wrap: wrap;
@@ -210,7 +204,6 @@ h2 {
   font-size: 13px;
 }
 
-/* Cards list */
 .cards-list {
   display: flex;
   flex-direction: column;
@@ -246,7 +239,6 @@ h2 {
   border-style: dashed;
 }
 
-/* Contact */
 .contact-list {
   display: flex;
   flex-direction: column;
@@ -276,18 +268,12 @@ a.contact-item:hover {
   color: #000;
 }
 
-@media (max-width: 768px) {
-  header { padding: 0 20px; }
-  #accueil h1 { font-size: 42px; }
-  .grid-2 { grid-template-columns: 1fr; gap: 30px; }
-  .inner { padding: 50px 20px; }
-  nav ul { gap: 2px; }
-  nav a { padding: 6px 10px; font-size: 12px; }
-}
-
 /* Burger */
 #burger {
   display: none;
+  position: fixed;
+  top: 18px;
+  right: 20px;
   flex-direction: column;
   gap: 5px;
   background: none;
@@ -320,13 +306,13 @@ a.contact-item:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s;
+  transform: translateX(100%);
+  transition: transform 0.4s cubic-bezier(0.77, 0, 0.18, 1);
 }
 
 #mobileMenu.open {
-  opacity: 1;
+  transform: translateX(0);
   pointer-events: all;
 }
 
@@ -352,14 +338,42 @@ a.contact-item:hover {
   opacity: 0.5;
 }
 
+/* Intro */
+#intro {
+  position: fixed;
+  inset: 0;
+  background: #111;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 48px;
+}
+
+#introLabel {
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #ffffff;
+  opacity: 0;
+}
+
+#introCounter {
+  font-size: clamp(80px, 18vw, 200px);
+  font-weight: bold;
+  color: #ffffff;
+  line-height: 1;
+  align-self: flex-end;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
   header { padding: 0 20px; }
-
   #navLinks { display: none; }
   #box { display: none; }
   #burger { display: flex; }
   #mobileMenu { display: flex; }
-
   #accueil h1 { font-size: 42px; }
   .grid-2 { grid-template-columns: 1fr; gap: 30px; }
   .inner { padding: 50px 20px; }

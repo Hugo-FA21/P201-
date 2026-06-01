@@ -9,26 +9,31 @@
 </head>
 <body>
 
+  <div id="intro">
+    <span id="introLabel">Bienvenue dans mon portfolio</span>
+    <span id="introCounter">000</span>
+  </div>
+
   <header>
     <nav>
       <h1>HFA</h1>
       <ul id="navLinks">
-        <li><a href="#accueil">Accueil</a></li>
-        <li><a href="#presentation">Présentation</a></li>
-        <li><a href="#pro">Projets pro</a></li>
-        <li><a href="#perso">Projets perso</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#accueil" draggable="false">Accueil</a></li>
+        <li><a href="#presentation" draggable="false">Présentation</a></li>
+        <li><a href="#pro" draggable="false">Projets pro</a></li>
+        <li><a href="#perso" draggable="false">Projets perso</a></li>
+        <li><a href="#contact" draggable="false">Contact</a></li>
       </ul>
-      <button id="burger" aria-label="Menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
       <div id="box"></div>
     </nav>
   </header>
 
-  <!-- Menu mobile -->
+  <button id="burger" aria-label="Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
   <div id="mobileMenu">
     <ul>
       <li><a href="#accueil">Accueil</a></li>
@@ -39,7 +44,7 @@
     </ul>
   </div>
 
-  <main id="main">
+  <main>
 
     <section id="accueil" class="page active">
       <div class="hero-content">
@@ -117,24 +122,15 @@
         <div class="cards-list">
           <div class="card-item placeholder">
             <span class="date">À venir</span>
-            <div>
-              <strong>Projet #1</strong>
-              <p>Description du projet à renseigner.</p>
-            </div>
+            <div><strong>Projet #1</strong><p>Description du projet à renseigner.</p></div>
           </div>
           <div class="card-item placeholder">
             <span class="date">À venir</span>
-            <div>
-              <strong>Projet #2</strong>
-              <p>Description du projet à renseigner.</p>
-            </div>
+            <div><strong>Projet #2</strong><p>Description du projet à renseigner.</p></div>
           </div>
           <div class="card-item placeholder">
             <span class="date">À venir</span>
-            <div>
-              <strong>Projet #3</strong>
-              <p>Description du projet à renseigner.</p>
-            </div>
+            <div><strong>Projet #3</strong><p>Description du projet à renseigner.</p></div>
           </div>
         </div>
       </div>
