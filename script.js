@@ -122,9 +122,17 @@ function initDraggable() {
 
   draggable = createDraggable(box, {
     container: nav,
+    cursor: {
+        onHover : "url('cursor-grab.png') 0 0, grab",
+        onGrab : "url('cursor-grabbing.png') 0 0, grabbing"
+    },
     release: { duration: 500, ease: "outElastic(1, .6)" },
-    onGrab() { if (resizeAnim) resizeAnim.cancel(); },
+    onGrab() { 
+          document.body.classList.add("dragging");
+        if (resizeAnim) resizeAnim.cancel();
+    },
     onRelease(d) {
+          document.body.classList.remove("dragging");
       const hit = findClosest(d.x, d.y);
       if (!hit) return;
       draggable.stop();
@@ -205,3 +213,4 @@ window.addEventListener("resize", () => {
   draggable.stop();
   animate(draggable, { x: 0, y: 0, duration: 0 });
 });
+
