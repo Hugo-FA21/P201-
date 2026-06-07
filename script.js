@@ -1,4 +1,4 @@
-import { createDraggable, animate } from "https://cdn.jsdelivr.net/npm/animejs/+esm";
+import { createDraggable, animate, svg, stagger } from "https://cdn.jsdelivr.net/npm/animejs/+esm";
 
 const box = document.getElementById("box");
 const nav = document.querySelector("nav");
@@ -212,5 +212,13 @@ window.addEventListener("resize", () => {
 
   draggable.stop();
   animate(draggable, { x: 0, y: 0, duration: 0 });
+});
+
+animate(svg.createDrawable('.line'), {
+  draw: ['0 0', '0 1', '1 1'],
+  ease: 'inOutQuad',
+  duration: 2000,
+  delay: stagger(100),
+  loop: true
 });
 
